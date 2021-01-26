@@ -114,22 +114,6 @@ option {
   margin: 3rem 0rem 0rem 0rem;
 }
 
-@media only screen and (max-width: 470px) {
-  .mat-form-container {
-    margin-top: 2rem;
-    height: 25rem;
-  }
-  .material-form {
-    width: 17rem;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  .material-form {
-    width: 14rem;
-  }
-}
-
 /* #formOne {
   display: none;
 } */
@@ -168,8 +152,46 @@ option {
 }
 
 #progress-bar {
-  background-color: royalblue;
+  background-color: rgb(18, 112, 112);
   width: 0rem;
   height: 0.3rem;
   transition: 0.4s;
+}
+
+@media only screen and (max-width: 470px) {
+  p {
+    font-size: 0.9rem;
+  }
+
+  h4 {
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .mat-form-container {
+    width: 80vw;
+  }
+
+  .material-form {
+    padding: 2rem 1rem;
+    margin: 5rem 0rem;
+  }
+
+  .form-heading {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+
+  img {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .mat-form-container {
+    width: 90vw;
+  }
 }
