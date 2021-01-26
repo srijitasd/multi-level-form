@@ -12,6 +12,15 @@ window.addEventListener("load", (e) => {
   var projectDetailSubmit = document.getElementById("btnTwo");
 
   var formThreeHeading = document.getElementById("formThreeHeading");
+  var ClientName = document.getElementById("ClientName");
+  var ClientNumber = document.getElementById("ClientNumber");
+  var ClientCountry = document.getElementById("ClientCountry");
+  var complexityType = document.getElementById("complexityType");
+  var finalSubmit = document.getElementById("btnThree");
+
+  var back = document.getElementById("back");
+  var backTwo = document.getElementById("backtwo");
+  var progressBar = document.getElementById("progress-bar");
 
   // empty variables
   var serviceTypeValue;
@@ -19,6 +28,10 @@ window.addEventListener("load", (e) => {
   var projectNameValue;
   var projectDescripValue;
   var webUrlValue;
+  var clientNameValue;
+  var clientNumberValue;
+  var clientCountryValue;
+  var complexityTypeValue;
 
   // first form data
   var services = [
@@ -74,10 +87,22 @@ window.addEventListener("load", (e) => {
     },
   ];
 
-  // evemts
-  serviceType.addEventListener("click", (e) => {
+  //events
+
+  back.addEventListener("click", (e) => {
+    backForm("#formTwo", "#formOne");
+    progressBar.style.width = "0rem";
+  });
+
+  backTwo.addEventListener("click", (e) => {
+    backForm("#formThree", "#formTwo");
+    progressBar.style.width = "2rem";
+  });
+
+  // form one events
+  serviceType.addEventListener("change", (e) => {
     serviceTypeValue = serviceType.value;
-    if (serviceTypeValue !== "select") {
+    if (serviceType.value !== "select") {
       myProduct.removeAttribute("disabled");
       var reqData = services.filter((service) => {
         if (service.type == serviceTypeValue) {
@@ -98,17 +123,19 @@ window.addEventListener("load", (e) => {
     }
   });
 
-  myProduct.addEventListener("click", (e) => {
+  myProduct.addEventListener("change", (e) => {
     productTypeValue = myProduct.value;
     disabledSubmit(productTypeValue, subProject);
   });
 
   subProject.addEventListener("click", (e) => {
     fadeForm("#formOne", "#formTwo");
-    formTwoHeading.textContent += serviceTypeValue;
-    console.log(serviceTypeValue);
-    console.log(productTypeValue);
+    formTwoHeading.textContent = serviceTypeValue;
+    back.style.display = "block";
+    progressBar.style.width = "2rem";
   });
+
+  // form two events
 
   projectName.addEventListener("change", (e) => {
     projectNameValue = projectName.value;
@@ -132,9 +159,12 @@ window.addEventListener("load", (e) => {
         projectNameValue = projectName.value;
         projectDescripValue = projectDescrip.value;
         webUrlValue = webUrl.value;
-        console.log(projectNameValue, projectDescripValue, webUrlValue);
+
         fadeForm("#formTwo", "#formThree");
-        formThreeHeading.textContent += serviceTypeValue;
+        progressBar.style.width = "4rem";
+        formThreeHeading.textContent = serviceTypeValue;
+        backTwo.style.display = "block";
+        window.scrollTo(0, 0);
       });
     } else {
       projectDetailSubmit.setAttribute("disabled", true);
@@ -144,6 +174,90 @@ window.addEventListener("load", (e) => {
         pointerEvents: "none",
       });
     }
+  });
+
+  // form three events
+
+  ClientName.addEventListener("change", (e) => {
+    clientNameValue = ClientName.value;
+    if (ClientName.value.length > 3) {
+      ClientNumber.removeAttribute("disabled");
+    } else {
+      ClientNumber.setAttribute("disabled", true);
+    }
+  });
+
+  ClientNumber.addEventListener("change", (e) => {
+    clientNumberValue = ClientNumber.value;
+    if (ClientNumber.value.length > 3) {
+      ClientCountry.removeAttribute("disabled");
+    } else {
+      ClientCountry.setAttribute("disabled", true);
+    }
+  });
+
+  ClientCountry.addEventListener("change", (e) => {
+    clientCountryValue = ClientCountry.value;
+    if (ClientCountry.value.length > 3) {
+      complexityType.removeAttribute("disabled");
+    } else {
+      complexityType.setAttribute("disabled", true);
+    }
+  });
+
+  complexityType.addEventListener("change", (e) => {
+    complexityTypeValue = complexityType.value;
+    if (complexityType.value == "select" || complexityType.value == "") {
+      finalSubmit.setAttribute("disabled", true);
+      finalSubmit.style.cursor = "not-allowed";
+      finalSubmit.style.backgroundColor = "rgba(53, 53, 53, 0.8)";
+    } else {
+      finalSubmit.removeAttribute("disabled");
+      finalSubmit.style.cursor = "default";
+      finalSubmit.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    }
+  });
+
+  finalSubmit.addEventListener("click", (e) => {
+    console.log(
+      serviceTypeValue,
+      "--",
+      productTypeValue,
+      "--",
+      projectNameValue,
+      "--",
+      projectDescripValue,
+      "--",
+      webUrlValue,
+      "--",
+      clientNameValue,
+      "--",
+      clientNumberValue,
+      "--",
+      clientCountryValue,
+      "--",
+      complexityTypeValue,
+      "--"
+    );
+
+    serviceType.value = "";
+    myProduct.value = "";
+    projectName.value = "";
+    projectDescrip.value = "";
+    webUrl.value = "";
+    ClientName.value = "";
+    ClientNumber.value = "";
+    ClientCountry.value = "select";
+    complexityType.value = "select";
+    serviceTypeValue = "";
+    productTypeValue = "";
+    projectNameValue = "";
+    projectDescripValue = "";
+    webUrlValue = "";
+    clientNameValue = "";
+    clientNumberValue = "";
+    clientCountryValue = "";
+    complexityTypeValue = "";
   });
 
   // fumctions
@@ -160,10 +274,12 @@ window.addEventListener("load", (e) => {
     if (lastInput == "select" || typeof lastInput == "undefined") {
       formButton.setAttribute("disabled", true);
       formButton.style.cursor = "not-allowed";
-      formButton.style.backgroundColor = "rgba(53, 53, 53, 0.8);";
+      formButton.style.pointerEvents = "none";
+      formButton.style.backgroundColor = "rgba(53, 53, 53, 0.8)";
     } else {
       formButton.removeAttribute("disabled");
       formButton.style.cursor = "default";
+      formButton.style.pointerEvents = "all";
       formButton.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
     }
   };
@@ -175,14 +291,34 @@ window.addEventListener("load", (e) => {
       duration: 0.5,
       x: -200,
       opacity: 0,
+      zIndex: -1,
       onComplete: showForm(elementTwo),
     });
   };
+
+  const backForm = (element, elementTwo) => {
+    gsap.to(element, {
+      duration: 0.5,
+      x: 200,
+      opacity: 0,
+      zIndex: -1,
+      onComplete: showBackForm(elementTwo),
+    });
+  };
+
   const showForm = (element) => {
     gsap.fromTo(
       element,
-      { duration: 0.5, x: 100, display: "none", opacity: 0 },
-      { x: 0, delay: 0.3, display: "flex", opacity: 1 }
+      { duration: 0.5, x: 100, display: "none", opacity: 0, zIndex: -1 },
+      { x: 0, delay: 0.3, display: "flex", opacity: 1, zIndex: 1 }
+    );
+  };
+
+  const showBackForm = (element) => {
+    gsap.fromTo(
+      element,
+      { duration: 0.5, x: -100, display: "none", opacity: 0, zIndex: -1 },
+      { x: 0, delay: 0.3, display: "flex", opacity: 1, zIndex: 1 }
     );
   };
 });

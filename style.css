@@ -92,7 +92,8 @@ img {
 
 option {
   color: rgba(41, 41, 41, 0.8);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .parentIdBox {
@@ -143,4 +144,32 @@ option {
   position: absolute;
   top: 0rem;
   display: none;
+}
+
+#back,
+#backtwo {
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  cursor: pointer;
+  display: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(18, 112, 112);
+}
+#progress-bar-container {
+  width: 6rem;
+  height: 0.3rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(131, 131, 131, 0.3);
+  position: absolute;
+  top: 4rem;
+  overflow: hidden;
+}
+
+#progress-bar {
+  background-color: royalblue;
+  width: 0rem;
+  height: 0.3rem;
+  transition: 0.4s;
 }

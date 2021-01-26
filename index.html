@@ -1,66 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
-</head>
-<body>
-<div class="mat-form-container">
-    <div  class="material-form" id="formOne">
-        <div class="form-title-div">
-            <img src="start.png" alt=""> 
-            <p class="light form-heading">submit a project</p>
-        </div>
-            <label for="helpType" class="mat-label">I need help with :</label>
-                <select name="helpType" id="helpType">
-                    <option class="option" value="select">select</option>
-                    <option class="option" value="Social media marketing">Social media marketing</option>
-                    <option class="option" value="Website design">Website design</option>
-                    <option class="option" value="Google Ads">Google Ads</option>
-                    <option class="option" value="Landing page development">Landing page development</option>
-                    <option class="option" value="Search engine optimisation">search engine optimisation</option>
-                    <option class="option" value="Funnel development">Ecommerce funnel development</option>
-                </select>
+  </head>
 
-            <label for="my" class="mat-label">My :</label>
-                <select name="my" id="my" disabled>
-                    <option class="option" value="select">select</option>
-                </select>
-            <button class="mat-submit" disabled id="btnOne" name="cat_submit" >Continue</button>    
+  <body>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
     </div>
-
-    <div class="material-form" id="formTwo">
+    <div class="mat-form-container">
+      <div class="material-form" id="formOne">
         <div class="form-title-div">
-            <img src="start.png" alt="">
-            <p class="light form-heading" id="formTwoHeading"></p>
+          <img src="start.png" alt="" />
+          <p class="light form-heading">submit a project</p>
         </div>
-            <h4>Add your Project details</h4>
-            <label for="projectName" class="mat-label">Give your project a Name</label>
-                <input type="text" id="projectName" class="mat-input" name="projectName" placeholder="e.g.   I need my wordpress website fixed"/>
-            <label for="projectDescrip" class="mat-label">Give your project a Name</label>
-                <textarea id="projectDescrip" disabled class="mat-input" name="projectDescrip"></textarea>
-            <label for="webUrl" class="mat-label">Provide your project URL (OPTIONAL)</label>
-            <input type="text" id="webUrl" class="mat-input" name="webUrl" placeholder="e.g.   http://example.com"/>
-            <button class="mat-submit" id="btnTwo" name="cat_submit" >Continue</button>
-    </div>
-        <div class="material-form" id="formThree">
-            <div class="form-title-div">
-                <img src="start.png" alt="">
-                <p class="light form-heading" id="formThreeHeading"></p>
-            </div>
-            <label for="number" class="mat-label">Category Name</label>
-                <input type="text" id="number" class="mat-input" name="number" placeholder=""/>
-            <div class="toggle-container">
-            <button class="mat-submit" id="btnOne" name="cat_submit" >Add</button>
-    </div>
+        <label for="helpType" class="mat-label">I need help with :</label>
+        <select name="helpType" id="helpType" value="select">
+          <option class="option" value="select">select</option>
+          <option class="option" value="Social media marketing">
+            Social media marketing
+          </option>
+          <option class="option" value="Website design">Website design</option>
+          <option class="option" value="Google Ads">Google Ads</option>
+          <option class="option" value="Landing page development">
+            Landing page development
+          </option>
+          <option class="option" value="Search engine optimisation">
+            search engine optimisation
+          </option>
+          <option class="option" value="Funnel development">
+            Ecommerce funnel development
+          </option>
+        </select>
+
+        <label for="my" class="mat-label">My :</label>
+        <select name="my" id="my" disabled>
+          <option class="option" value="select">select</option>
+        </select>
+        <button class="mat-submit" disabled id="btnOne" name="cat_submit">
+          Continue
+        </button>
+      </div>
+
+      <div class="material-form" id="formTwo">
+        <h4 id="back">&#8592; back</h4>
+        <div class="form-title-div">
+          <img src="start.png" alt="" />
+          <p class="light form-heading" id="formTwoHeading"></p>
+        </div>
+        <h4>Add your Project details</h4>
+        <label for="projectName" class="mat-label"
+          >Give your project a Name</label
+        >
+        <input
+          type="text"
+          id="projectName"
+          class="mat-input"
+          name="projectName"
+          placeholder="e.g.   I need my wordpress website fixed"
+        />
+        <label for="projectDescrip" class="mat-label"
+          >Describe your project so that we can help you more precisely</label
+        >
+        <textarea
+          id="projectDescrip"
+          disabled
+          class="mat-input"
+          name="projectDescrip"
+        ></textarea>
+        <label for="webUrl" class="mat-label"
+          >Provide your project URL (OPTIONAL)</label
+        >
+        <input
+          type="text"
+          id="webUrl"
+          class="mat-input"
+          name="webUrl"
+          placeholder="e.g.   http://example.com"
+        />
+        <button class="mat-submit" id="btnTwo" name="cat_submit">
+          Continue
+        </button>
+      </div>
+
+      <div class="material-form" id="formThree">
+        <h4 id="backtwo">&#8592; back</h4>
+        <div class="form-title-div">
+          <img src="start.png" alt="" />
+          <p class="light form-heading" id="formThreeHeading"></p>
+        </div>
+        <h4>Add your Contact details</h4>
+        <label for="ClientName" class="mat-label">Your Name</label>
+        <input
+          type="text"
+          id="ClientName"
+          class="mat-input"
+          name="ClientName"
+        />
+        <label for="ClientNumber" class="mat-label">Your Contact Number</label>
+        <input
+          disabled
+          type="text"
+          id="ClientNumber"
+          class="mat-input"
+          name="ClientNumber"
+        />
+        <label for="ClientCountry" class="mat-label"
+          >How complex is your project?</label
+        >
+        <select name="ClientCountry" id="ClientCountry" disabled>
+          <option class="option" value="select">select</option>
+          <option class="option" value="Afganistan">Afghanistan</option>
+          <option class="option" value="Albania">Albania</option>
+          <option class="option" value="Algeria">Algeria</option>
+          <option class="option" value="American Samoa">American Samoa</option>
+          <option class="option" value="Andorra">Andorra</option>
+          <option class="option" value="Angola">Angola</option>
+          <option class="option" value="Anguilla">Anguilla</option>
+          <option class="option" value="Antigua & Barbuda">
+            Antigua & Barbuda
+          </option>
+          <option class="option" value="Argentina">Argentina</option>
+          <option class="option" value="Armenia">Armenia</option>
+          <option class="option" value="Aruba">Aruba</option>
+          <option class="option" value="Australia">Australia</option>
+          <option class="option" value="Austria">Austria</option>
+          <option class="option" value="Azerbaijan">Azerbaijan</option>
+          <option class="option" value="Bahamas">Bahamas</option>
+          <option class="option" value="Bahrain">Bahrain</option>
+          <option class="option" value="Bangladesh">Bangladesh</option>
+          <option class="option" value="Barbados">Barbados</option>
+          <option class="option" value="Belarus">Belarus</option>
+          <option class="option" value="Belgium">Belgium</option>
+          <option class="option" value="Belize">Belize</option>
+          <option class="option" value="Benin">Benin</option>
+          <option class="option" value="Bermuda">Bermuda</option>
+          <option class="option" value="Bhutan">Bhutan</option>
+          <option class="option" value="Bolivia">Bolivia</option>
+          <option class="option" value="Bonaire">Bonaire</option>
+          <option class="option" value="Bosnia & Herzegovina">
+            Bosnia & Herzegovina
+          </option>
+          <option class="option" value="Botswana">Botswana</option>
+          <option class="option" value="Brazil">Brazil</option>
+          <option class="option" value="British Indian Ocean Ter">
+            British Indian Ocean Ter
+          </option>
+          <option class="option" value="Brunei">Brunei</option>
+          <option class="option" value="Bulgaria">Bulgaria</option>
+          <option class="option" value="Burkina Faso">Burkina Faso</option>
+          <option class="option" value="Burundi">Burundi</option>
+          <option class="option" value="Cambodia">Cambodia</option>
+          <option class="option" value="Cameroon">Cameroon</option>
+          <option class="option" value="Canada">Canada</option>
+          <option class="option" value="Canary Islands">Canary Islands</option>
+          <option class="option" value="Cape Verde">Cape Verde</option>
+          <option class="option" value="Cayman Islands">Cayman Islands</option>
+          <option class="option" value="Central African Republic">
+            Central African Republic
+          </option>
+          <option class="option" value="Chad">Chad</option>
+          <option class="option" value="Channel Islands">
+            Channel Islands
+          </option>
+          <option class="option" value="Chile">Chile</option>
+          <option class="option" value="China">China</option>
+          <option class="option" value="Christmas Island">
+            Christmas Island
+          </option>
+          <option class="option" value="Cocos Island">Cocos Island</option>
+          <option class="option" value="Colombia">Colombia</option>
+          <option class="option" value="Comoros">Comoros</option>
+          <option class="option" value="Congo">Congo</option>
+          <option class="option" value="Cook Islands">Cook Islands</option>
+          <option class="option" value="Costa Rica">Costa Rica</option>
+          <option class="option" value="Cote DIvoire">Cote DIvoire</option>
+          <option class="option" value="Croatia">Croatia</option>
+          <option class="option" value="Cuba">Cuba</option>
+          <option class="option" value="Curaco">Curacao</option>
+          <option class="option" value="Cyprus">Cyprus</option>
+          <option class="option" value="Czech Republic">Czech Republic</option>
+          <option class="option" value="Denmark">Denmark</option>
+          <option class="option" value="Djibouti">Djibouti</option>
+          <option class="option" value="Dominica">Dominica</option>
+          <option class="option" value="Dominican Republic">
+            Dominican Republic
+          </option>
+          <option class="option" value="East Timor">East Timor</option>
+          <option class="option" value="Ecuador">Ecuador</option>
+          <option class="option" value="Egypt">Egypt</option>
+          <option class="option" value="El Salvador">El Salvador</option>
+          <option class="option" value="Equatorial Guinea">
+            Equatorial Guinea
+          </option>
+          <option class="option" value="Eritrea">Eritrea</option>
+          <option class="option" value="Estonia">Estonia</option>
+          <option class="option" value="Ethiopia">Ethiopia</option>
+          <option class="option" value="Falkland Islands">
+            Falkland Islands
+          </option>
+          <option class="option" value="Faroe Islands">Faroe Islands</option>
+          <option class="option" value="Fiji">Fiji</option>
+          <option class="option" value="Finland">Finland</option>
+          <option class="option" value="France">France</option>
+          <option class="option" value="French Guiana">French Guiana</option>
+          <option class="option" value="French Polynesia">
+            French Polynesia
+          </option>
+          <option class="option" value="French Southern Ter">
+            French Southern Ter
+          </option>
+          <option class="option" value="Gabon">Gabon</option>
+          <option class="option" value="Gambia">Gambia</option>
+          <option class="option" value="Georgia">Georgia</option>
+          <option class="option" value="Germany">Germany</option>
+          <option class="option" value="Ghana">Ghana</option>
+          <option class="option" value="Gibraltar">Gibraltar</option>
+          <option class="option" value="Great Britain">Great Britain</option>
+          <option class="option" value="Greece">Greece</option>
+          <option class="option" value="Greenland">Greenland</option>
+          <option class="option" value="Grenada">Grenada</option>
+          <option class="option" value="Guadeloupe">Guadeloupe</option>
+          <option class="option" value="Guam">Guam</option>
+          <option class="option" value="Guatemala">Guatemala</option>
+          <option class="option" value="Guinea">Guinea</option>
+          <option class="option" value="Guyana">Guyana</option>
+          <option class="option" value="Haiti">Haiti</option>
+          <option class="option" value="Hawaii">Hawaii</option>
+          <option class="option" value="Honduras">Honduras</option>
+          <option class="option" value="Hong Kong">Hong Kong</option>
+          <option class="option" value="Hungary">Hungary</option>
+          <option class="option" value="Iceland">Iceland</option>
+          <option class="option" value="Indonesia">Indonesia</option>
+          <option class="option" value="India">India</option>
+          <option class="option" value="Iran">Iran</option>
+          <option class="option" value="Iraq">Iraq</option>
+          <option class="option" value="Ireland">Ireland</option>
+          <option class="option" value="Isle of Man">Isle of Man</option>
+          <option class="option" value="Israel">Israel</option>
+          <option class="option" value="Italy">Italy</option>
+          <option class="option" value="Jamaica">Jamaica</option>
+          <option class="option" value="Japan">Japan</option>
+          <option class="option" value="Jordan">Jordan</option>
+          <option class="option" value="Kazakhstan">Kazakhstan</option>
+          <option class="option" value="Kenya">Kenya</option>
+          <option class="option" value="Kiribati">Kiribati</option>
+          <option class="option" value="Korea North">Korea North</option>
+          <option class="option" value="Korea Sout">Korea South</option>
+          <option class="option" value="Kuwait">Kuwait</option>
+          <option class="option" value="Kyrgyzstan">Kyrgyzstan</option>
+          <option class="option" value="Laos">Laos</option>
+          <option class="option" value="Latvia">Latvia</option>
+          <option class="option" value="Lebanon">Lebanon</option>
+          <option class="option" value="Lesotho">Lesotho</option>
+          <option class="option" value="Liberia">Liberia</option>
+          <option class="option" value="Libya">Libya</option>
+          <option class="option" value="Liechtenstein">Liechtenstein</option>
+          <option class="option" value="Lithuania">Lithuania</option>
+          <option class="option" value="Luxembourg">Luxembourg</option>
+          <option class="option" value="Macau">Macau</option>
+          <option class="option" value="Macedonia">Macedonia</option>
+          <option class="option" value="Madagascar">Madagascar</option>
+          <option class="option" value="Malaysia">Malaysia</option>
+          <option class="option" value="Malawi">Malawi</option>
+          <option class="option" value="Maldives">Maldives</option>
+          <option class="option" value="Mali">Mali</option>
+          <option class="option" value="Malta">Malta</option>
+          <option class="option" value="Marshall Islands">
+            Marshall Islands
+          </option>
+          <option class="option" value="Martinique">Martinique</option>
+          <option class="option" value="Mauritania">Mauritania</option>
+          <option class="option" value="Mauritius">Mauritius</option>
+          <option class="option" value="Mayotte">Mayotte</option>
+          <option class="option" value="Mexico">Mexico</option>
+          <option class="option" value="Midway Islands">Midway Islands</option>
+          <option class="option" value="Moldova">Moldova</option>
+          <option class="option" value="Monaco">Monaco</option>
+          <option class="option" value="Mongolia">Mongolia</option>
+          <option class="option" value="Montserrat">Montserrat</option>
+          <option class="option" value="Morocco">Morocco</option>
+          <option class="option" value="Mozambique">Mozambique</option>
+          <option class="option" value="Myanmar">Myanmar</option>
+          <option class="option" value="Nambia">Nambia</option>
+          <option class="option" value="Nauru">Nauru</option>
+          <option class="option" value="Nepal">Nepal</option>
+          <option class="option" value="Netherland Antilles">
+            Netherland Antilles
+          </option>
+          <option class="option" value="Netherlands">
+            Netherlands (Holland, Europe)
+          </option>
+          <option class="option" value="Nevis">Nevis</option>
+          <option class="option" value="New Caledonia">New Caledonia</option>
+          <option class="option" value="New Zealand">New Zealand</option>
+          <option class="option" value="Nicaragua">Nicaragua</option>
+          <option class="option" value="Niger">Niger</option>
+          <option class="option" value="Nigeria">Nigeria</option>
+          <option class="option" value="Niue">Niue</option>
+          <option class="option" value="Norfolk Island">Norfolk Island</option>
+          <option class="option" value="Norway">Norway</option>
+          <option class="option" value="Oman">Oman</option>
+          <option class="option" value="Pakistan">Pakistan</option>
+          <option class="option" value="Palau Island">Palau Island</option>
+          <option class="option" value="Palestine">Palestine</option>
+          <option class="option" value="Panama">Panama</option>
+          <option class="option" value="Papua New Guinea">
+            Papua New Guinea
+          </option>
+          <option class="option" value="Paraguay">Paraguay</option>
+          <option class="option" value="Peru">Peru</option>
+          <option class="option" value="Phillipines">Philippines</option>
+          <option class="option" value="Pitcairn Island">
+            Pitcairn Island
+          </option>
+          <option class="option" value="Poland">Poland</option>
+          <option class="option" value="Portugal">Portugal</option>
+          <option class="option" value="Puerto Rico">Puerto Rico</option>
+          <option class="option" value="Qatar">Qatar</option>
+          <option class="option" value="Republic of Montenegro">
+            Republic of Montenegro
+          </option>
+          <option class="option" value="Republic of Serbia">
+            Republic of Serbia
+          </option>
+          <option class="option" value="Reunion">Reunion</option>
+          <option class="option" value="Romania">Romania</option>
+          <option class="option" value="Russia">Russia</option>
+          <option class="option" value="Rwanda">Rwanda</option>
+          <option class="option" value="St Barthelemy">St Barthelemy</option>
+          <option class="option" value="St Eustatius">St Eustatius</option>
+          <option class="option" value="St Helena">St Helena</option>
+          <option class="option" value="St Kitts-Nevis">St Kitts-Nevis</option>
+          <option class="option" value="St Lucia">St Lucia</option>
+          <option class="option" value="St Maarten">St Maarten</option>
+          <option class="option" value="St Pierre & Miquelon">
+            St Pierre & Miquelon
+          </option>
+          <option class="option" value="St Vincent & Grenadines">
+            St Vincent & Grenadines
+          </option>
+          <option class="option" value="Saipan">Saipan</option>
+          <option class="option" value="Samoa">Samoa</option>
+          <option class="option" value="Samoa American">Samoa American</option>
+          <option class="option" value="San Marino">San Marino</option>
+          <option class="option" value="Sao Tome & Principe">
+            Sao Tome & Principe
+          </option>
+          <option class="option" value="Saudi Arabia">Saudi Arabia</option>
+          <option class="option" value="Senegal">Senegal</option>
+          <option class="option" value="Seychelles">Seychelles</option>
+          <option class="option" value="Sierra Leone">Sierra Leone</option>
+          <option class="option" value="Singapore">Singapore</option>
+          <option class="option" value="Slovakia">Slovakia</option>
+          <option class="option" value="Slovenia">Slovenia</option>
+          <option class="option" value="Solomon Islands">
+            Solomon Islands
+          </option>
+          <option class="option" value="Somalia">Somalia</option>
+          <option class="option" value="South Africa">South Africa</option>
+          <option class="option" value="Spain">Spain</option>
+          <option class="option" value="Sri Lanka">Sri Lanka</option>
+          <option class="option" value="Sudan">Sudan</option>
+          <option class="option" value="Suriname">Suriname</option>
+          <option class="option" value="Swaziland">Swaziland</option>
+          <option class="option" value="Sweden">Sweden</option>
+          <option class="option" value="Switzerland">Switzerland</option>
+          <option class="option" value="Syria">Syria</option>
+          <option class="option" value="Tahiti">Tahiti</option>
+          <option class="option" value="Taiwan">Taiwan</option>
+          <option class="option" value="Tajikistan">Tajikistan</option>
+          <option class="option" value="Tanzania">Tanzania</option>
+          <option class="option" value="Thailand">Thailand</option>
+          <option class="option" value="Togo">Togo</option>
+          <option class="option" value="Tokelau">Tokelau</option>
+          <option class="option" value="Tonga">Tonga</option>
+          <option class="option" value="Trinidad & Tobago">
+            Trinidad & Tobago
+          </option>
+          <option class="option" value="Tunisia">Tunisia</option>
+          <option class="option" value="Turkey">Turkey</option>
+          <option class="option" value="Turkmenistan">Turkmenistan</option>
+          <option class="option" value="Turks & Caicos Is">
+            Turks & Caicos Is
+          </option>
+          <option class="option" value="Tuvalu">Tuvalu</option>
+          <option class="option" value="Uganda">Uganda</option>
+          <option class="option" value="United Kingdom">United Kingdom</option>
+          <option class="option" value="Ukraine">Ukraine</option>
+          <option class="option" value="United Arab Erimates">
+            United Arab Emirates
+          </option>
+          <option class="option" value="United States of America">
+            United States of America
+          </option>
+          <option class="option" value="Uraguay">Uruguay</option>
+          <option class="option" value="Uzbekistan">Uzbekistan</option>
+          <option class="option" value="Vanuatu">Vanuatu</option>
+          <option class="option" value="Vatican City State">
+            Vatican City State
+          </option>
+          <option class="option" value="Venezuela">Venezuela</option>
+          <option class="option" value="Vietnam">Vietnam</option>
+          <option class="option" value="Virgin Islands (Brit)">
+            Virgin Islands (Brit)
+          </option>
+          <option class="option" value="Virgin Islands (USA)">
+            Virgin Islands (USA)
+          </option>
+          <option class="option" value="Wake Island">Wake Island</option>
+          <option class="option" value="Wallis & Futana Is">
+            Wallis & Futana Is
+          </option>
+          <option class="option" value="Yemen">Yemen</option>
+          <option class="option" value="Zaire">Zaire</option>
+          <option class="option" value="Zambia">Zambia</option>
+          <option class="option" value="Zimbabwe">Zimbabwe</option>
+        </select>
+        <label for="complexityType" class="mat-label"
+          >How complex is your project?</label
+        >
+        <select name="complexityType" id="complexityType" disabled>
+          <option class="option" value="select">select</option>
+          <option class="option" value="not so complex">not so complex</option>
+          <option class="option" value="moderately complex">
+            moderately complex
+          </option>
+          <option class="option" value="extremely complex">
+            extremely complex
+          </option>
+        </select>
+        <button class="mat-submit" id="btnThree" name="cat_submit">
+          submit project
+        </button>
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
