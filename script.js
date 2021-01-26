@@ -219,6 +219,7 @@ window.addEventListener("load", (e) => {
   });
 
   finalSubmit.addEventListener("click", (e) => {
+    progressBar.style.width = "6rem";
     console.log(
       serviceTypeValue,
       "--",
