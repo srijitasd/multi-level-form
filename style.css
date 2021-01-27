@@ -119,19 +119,31 @@ header {
   display: block;
 }
 
-.material-form > input[type="text"],
-.material-form > select,
+.input-container {
+  display: inline-flex;
+}
+
+.material-form .input-container > input[type="text"],
+.material-form .input-container > select,
 .mat-input {
   background-color: rgb(255, 255, 251);
   border: 1px solid rgba(131, 131, 131, 0.5);
   border-radius: 0.2rem;
   height: 2.4rem;
-  width: 100%;
+  width: 90%;
+  margin-right: 1rem;
   box-sizing: border-box;
   padding: 0rem 1rem;
   margin-bottom: 2.5rem;
   color: rgba(41, 41, 41, 0.7);
   align-self: center;
+}
+
+lottie-player {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.4rem;
+  cursor: pointer;
 }
 
 .material-form > textarea {
@@ -219,6 +231,17 @@ option {
   transition: 0.4s;
 }
 
+#message-div {
+  height: 70vh;
+  width: 30vw;
+  position: absolute;
+  top: 7rem;
+  border: 1px solid rgba(131, 131, 131, 0.3);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  padding: 3rem 3rem;
+}
+
 @media only screen and (max-width: 1030px) {
   .tile-text {
     margin: 0.5rem;
@@ -263,7 +286,7 @@ option {
   }
 
   .tile-button {
-    width: 60% !important;
+    width: 70% !important;
     margin: 2rem 0rem 0em 0rem !important;
     height: 2.5rem;
   }

@@ -23,6 +23,7 @@ window.addEventListener("load", (e) => {
   var back = document.getElementById("back");
   var backTwo = document.getElementById("backtwo");
   var progressBar = document.getElementById("progress-bar");
+  var infos = document.querySelectorAll(".info");
 
   // empty variables
   var serviceTypeValue;
@@ -132,6 +133,14 @@ window.addEventListener("load", (e) => {
     progressBar.style.width = "33.33%";
   });
 
+  document.addEventListener("click", (e) => console.log(e.target));
+
+  infos.forEach((info) => {
+    info.addEventListener("click", (e) => {
+      console.log(e.target.id);
+    });
+  });
+
   // form one events
   serviceType.addEventListener("change", (e) => {
     serviceTypeValue = serviceType.value;
@@ -161,7 +170,7 @@ window.addEventListener("load", (e) => {
     disabledSubmit(productTypeValue, subProject);
   });
 
-  subProject.addEventListener("click", (e) => {
+  subProject.addEventListener("hover", (e) => {
     fadeForm("#formOne", "#formTwo");
     formTwoHeading.textContent = serviceTypeValue;
     back.style.display = "block";
@@ -273,6 +282,40 @@ window.addEventListener("load", (e) => {
       complexityTypeValue,
       "--"
     );
+
+    $.ajax({
+      url: "submit_project.php",
+      type: "POST",
+      data: {
+        serviceTypeValue: serviceTypeValue,
+        productTypeValue: productTypeValue,
+        projectNameValue: projectNameValue,
+        projectDescripValue: projectDescripValue,
+        webUrlValue: webUrlValue,
+        clientNameValue: clientNameValue,
+        clientNumberValue: clientNumberValue,
+        clientCountryValue: clientCountryValue,
+        complexityTypeValue: complexityTypeValue,
+      },
+      success: function (data) {
+        console.log(data);
+        if (data == 1) {
+          gsap.to("#formThree", {
+            duration: 0.5,
+            x: 200,
+            opacity: 0,
+            zIndex: -1,
+          });
+        } else if (data == 10) {
+          gsap.to("#formThree", {
+            duration: 0.5,
+            x: 200,
+            opacity: 1,
+            zIndex: -1,
+          });
+        }
+      },
+    });
 
     serviceType.value = "";
     myProduct.value = "";

@@ -10,6 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.4.0/dist/lottie-player.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
@@ -64,28 +65,52 @@
           <p class="light form-heading">submit a project</p>
         </div>
         <label for="helpType" class="mat-label">I need help with :</label>
-        <select name="helpType" id="helpType" value="select">
-          <option class="option" value="select">select</option>
-          <option class="option" value="Social media marketing">
-            Social media marketing
-          </option>
-          <option class="option" value="Website design">Website design</option>
-          <option class="option" value="Google Ads">Google Ads</option>
-          <option class="option" value="Landing page development">
-            Landing page development
-          </option>
-          <option class="option" value="Search engine optimisation">
-            search engine optimisation
-          </option>
-          <option class="option" value="Funnel development">
-            Ecommerce funnel development
-          </option>
-        </select>
+        <div class="input-container">
+          <select name="helpType" id="helpType" value="select">
+            <option class="option" value="select">select</option>
+            <option class="option" value="Social media marketing">
+              Social media marketing
+            </option>
+            <option class="option" value="Website design">
+              Website design
+            </option>
+            <option class="option" value="Google Ads">Google Ads</option>
+            <option class="option" value="Landing page development">
+              Landing page development
+            </option>
+            <option class="option" value="Search engine optimisation">
+              search engine optimisation
+            </option>
+            <option class="option" value="Funnel development">
+              Ecommerce funnel development
+            </option>
+          </select>
+          <lottie-player
+            src="info.json"
+            background="transparent"
+            speed="1"
+            id="serviceType"
+            class="info"
+            hover
+            loop
+          ></lottie-player>
+        </div>
 
         <label for="my" class="mat-label">My :</label>
-        <select name="my" id="my" disabled>
-          <option class="option" value="select">select</option>
-        </select>
+        <div class="input-container">
+          <select name="my" id="my" disabled>
+            <option class="option" value="select">select</option>
+          </select>
+          <lottie-player
+            src="info.json"
+            background="transparent"
+            speed="1"
+            id="productType"
+            class="info"
+            hover
+            loop
+          ></lottie-player>
+        </div>
         <button class="mat-submit" disabled id="btnOne" name="cat_submit">
           Continue
         </button>
@@ -480,6 +505,7 @@
         </button>
       </div>
     </div>
+    <div id="message-div"></div>
     <script src="script.js"></script>
   </body>
 </html>
