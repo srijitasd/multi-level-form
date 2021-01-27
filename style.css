@@ -27,7 +27,7 @@ h4 {
 }
 
 header {
-  height: 5rem;
+  height: 15vh;
   background-color: rgb(218, 218, 218);
   width: 100vw;
   display: flex;
@@ -39,9 +39,46 @@ header {
   margin-left: 3rem;
 }
 
+#landing-div {
+  height: 85vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+
+.action-tile {
+  border: 1px solid rgba(131, 131, 131, 0.3);
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-rows: auto auto auto 3rem;
+}
+
+.tile-heading {
+  font-size: 0.9rem !important;
+  color: black !important;
+}
+
+.tile-text {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(41, 41, 41, 0.8);
+}
+
+.tile-button {
+  width: 50% !important;
+  float: right;
+  margin: 0 !important;
+  justify-self: right;
+}
+
 .mat-form-container {
   width: 40rem;
   position: relative;
+  display: none;
 }
 
 .material-form {
@@ -164,6 +201,7 @@ option {
   margin-top: 4rem;
   position: relative;
   top: 0.4rem;
+  display: none;
 }
 
 #progress-bar {

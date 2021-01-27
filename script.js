@@ -1,6 +1,8 @@
 window.addEventListener("load", (e) => {
   // selectors
 
+  var StartAProject = document.getElementById("StartAProject");
+
   var serviceType = document.getElementById("helpType");
   var myProduct = document.getElementById("my");
   var subProject = document.getElementById("btnOne");
@@ -88,6 +90,36 @@ window.addEventListener("load", (e) => {
   ];
 
   //events
+
+  StartAProject.addEventListener("click", () => {
+    gsap.fromTo(
+      "#landing-div",
+      { display: "grid", opacity: 1, duration: 0.5, ease: "elastic" },
+      { display: "none", opacity: 0, ease: "elastic" }
+    );
+    gsap.fromTo(
+      ".mat-form-container",
+      {
+        display: "none",
+        opacity: 0,
+        delay: 0.5,
+        duration: 0.5,
+        ease: "elastic",
+      },
+      { display: "block", opacity: 1, ease: "elastic" }
+    );
+    gsap.fromTo(
+      "#progress-bar-container",
+      {
+        display: "none",
+        opacity: 0,
+        delay: 0.5,
+        duration: 0.5,
+        ease: "elastic",
+      },
+      { display: "block", opacity: 1, ease: "elastic" }
+    );
+  });
 
   back.addEventListener("click", (e) => {
     backForm("#formTwo", "#formOne");
