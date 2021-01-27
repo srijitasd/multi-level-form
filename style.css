@@ -222,6 +222,18 @@ option {
     font-size: 1rem;
   }
 
+  #landing-div {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .tile-button {
+    width: 60% !important;
+  }
+
   .mat-form-container {
     width: 85vw;
   }
