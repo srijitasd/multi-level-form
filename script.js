@@ -91,12 +91,12 @@ window.addEventListener("load", (e) => {
 
   back.addEventListener("click", (e) => {
     backForm("#formTwo", "#formOne");
-    progressBar.style.width = "0rem";
+    progressBar.style.width = "0%";
   });
 
   backTwo.addEventListener("click", (e) => {
     backForm("#formThree", "#formTwo");
-    progressBar.style.width = "2rem";
+    progressBar.style.width = "33.33%";
   });
 
   // form one events
@@ -132,7 +132,7 @@ window.addEventListener("load", (e) => {
     fadeForm("#formOne", "#formTwo");
     formTwoHeading.textContent = serviceTypeValue;
     back.style.display = "block";
-    progressBar.style.width = "2rem";
+    progressBar.style.width = "33.33%";
   });
 
   // form two events
@@ -151,7 +151,7 @@ window.addEventListener("load", (e) => {
     if (projectDescrip.value.length > 20) {
       projectDetailSubmit.removeAttribute("disabled");
       gsap.to("#btnTwo", {
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        backgroundColor: "rgba(22, 51, 255, 1)",
         cursor: "default",
         pointerEvents: "all",
       });
@@ -161,7 +161,7 @@ window.addEventListener("load", (e) => {
         webUrlValue = webUrl.value;
 
         fadeForm("#formTwo", "#formThree");
-        progressBar.style.width = "4rem";
+        progressBar.style.width = "66.66%";
         formThreeHeading.textContent = serviceTypeValue;
         backTwo.style.display = "block";
         window.scrollTo(0, 0);
@@ -169,7 +169,7 @@ window.addEventListener("load", (e) => {
     } else {
       projectDetailSubmit.setAttribute("disabled", true);
       gsap.to("#btnTwo", {
-        backgroundColor: "rgba(53, 53, 53, 0.8)",
+        backgroundColor: "rgba(48, 71, 250, 0.9)",
         cursor: "not-allowed",
         pointerEvents: "none",
       });
@@ -210,16 +210,16 @@ window.addEventListener("load", (e) => {
     if (complexityType.value == "select" || complexityType.value == "") {
       finalSubmit.setAttribute("disabled", true);
       finalSubmit.style.cursor = "not-allowed";
-      finalSubmit.style.backgroundColor = "rgba(53, 53, 53, 0.8)";
+      finalSubmit.style.backgroundColor = "rgba(48, 71, 250, 0.9)";
     } else {
       finalSubmit.removeAttribute("disabled");
       finalSubmit.style.cursor = "default";
-      finalSubmit.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      finalSubmit.style.backgroundColor = "rgba(22, 51, 255, 1)";
     }
   });
 
   finalSubmit.addEventListener("click", (e) => {
-    progressBar.style.width = "6rem";
+    progressBar.style.width = "100%";
     console.log(
       serviceTypeValue,
       "--",
@@ -276,12 +276,12 @@ window.addEventListener("load", (e) => {
       formButton.setAttribute("disabled", true);
       formButton.style.cursor = "not-allowed";
       formButton.style.pointerEvents = "none";
-      formButton.style.backgroundColor = "rgba(53, 53, 53, 0.8)";
+      formButton.style.backgroundColor = "rgba(48, 71, 250, 0.9)";
     } else {
       formButton.removeAttribute("disabled");
       formButton.style.cursor = "default";
       formButton.style.pointerEvents = "all";
-      formButton.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+      formButton.style.backgroundColor = "rgba(22, 51, 255, 1)";
     }
   };
 
