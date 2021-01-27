@@ -40,21 +40,21 @@ header {
 }
 
 #landing-div {
-  height: 85vh;
+  height: auto;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  padding: 4rem 2rem;
+  grid-gap: 3rem;
+  padding: 3rem 3rem;
   box-sizing: border-box;
 }
 
 .action-tile {
   border: 1px solid rgba(131, 131, 131, 0.3);
   border-radius: 0.5rem;
-  padding: 1rem 2rem;
+  padding: 3rem 3rem;
   display: grid;
-  grid-template-rows: auto auto auto 3rem;
+  grid-template-rows: auto auto auto 7rem;
 }
 
 .tile-heading {
@@ -63,16 +63,24 @@ header {
 }
 
 .tile-text {
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
+  margin: 2rem;
+  font-size: 1rem;
   color: rgba(41, 41, 41, 0.8);
+}
+
+.sub-text {
+  margin-top: 0.5rem !important;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .tile-button {
   width: 50% !important;
   float: right;
-  margin: 0 !important;
+  margin: 2rem 0rem 4em 0rem !important;
   justify-self: right;
+  height: 3.5rem !important;
+  cursor: pointer !important;
 }
 
 .mat-form-container {
@@ -211,6 +219,19 @@ option {
   transition: 0.4s;
 }
 
+@media only screen and (max-width: 1030px) {
+  .tile-text {
+    margin: 0.5rem;
+  }
+  .tile-button {
+    width: 50% !important;
+    float: right;
+    margin: 2rem 0rem 2em 0rem !important;
+    justify-self: right;
+    height: 3.5rem !important;
+  }
+}
+
 @media only screen and (max-width: 470px) {
   p {
     font-size: 0.9rem;
@@ -226,12 +247,25 @@ option {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     box-sizing: border-box;
+    margin-bottom: 3rem;
+  }
+
+  .action-tile {
+    grid-template-rows: auto auto auto 5rem;
+    padding: 3rem 2rem;
+    border-radius: 0.2rem;
+  }
+
+  .tile-text {
+    margin: 1rem;
   }
 
   .tile-button {
     width: 60% !important;
+    margin: 2rem 0rem 0em 0rem !important;
+    height: 2.5rem;
   }
 
   .mat-form-container {

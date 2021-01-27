@@ -92,6 +92,7 @@ window.addEventListener("load", (e) => {
   //events
 
   StartAProject.addEventListener("click", () => {
+    window.scroll(0, 0);
     gsap.fromTo(
       "#landing-div",
       { display: "grid", opacity: 1, duration: 0.5, ease: "elastic" },
