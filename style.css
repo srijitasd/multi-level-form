@@ -234,6 +234,7 @@ option {
   top: 0;
 }
 
+#backToHome,
 #back,
 #backtwo {
   position: absolute;

@@ -20,6 +20,7 @@ window.addEventListener("load", (e) => {
   var complexityType = document.getElementById("complexityType");
   var finalSubmit = document.getElementById("btnThree");
 
+  var backToHome = document.getElementById("backToHome");
   var back = document.getElementById("back");
   var backTwo = document.getElementById("backtwo");
   var progressBar = document.getElementById("progress-bar");
@@ -93,12 +94,43 @@ window.addEventListener("load", (e) => {
 
   //events
 
-  StartAProject.addEventListener("click", () => {
-    window.scroll(0, 0);
+  backToHome.addEventListener("click", () => {
     gsap.fromTo(
       "#landing-div",
-      { display: "grid", opacity: 1, duration: 0.5, ease: "elastic" },
-      { display: "none", opacity: 0, ease: "elastic" }
+      {
+        display: "none",
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.5,
+        ease: "fade",
+      },
+      {
+        display: "grid",
+        opacity: 1,
+        duration: 0.5,
+        delay: 0.5,
+        ease: "fade",
+      }
+    );
+    gsap.fromTo(
+      ".mat-form-container",
+      {
+        display: "block",
+        opacity: 1,
+        delay: 0.5,
+        duration: 0.5,
+        ease: "fade",
+      },
+      { display: "none", opacity: 0, duration: 0.5, ease: "fade" }
+    );
+  });
+
+  StartAProject.addEventListener("click", () => {
+    window.scrollTo(0, 0);
+    gsap.fromTo(
+      "#landing-div",
+      { display: "grid", opacity: 1, duration: 0.5, ease: "fade" },
+      { display: "none", opacity: 0, ease: "fade" }
     );
     gsap.fromTo(
       ".mat-form-container",
@@ -107,9 +139,9 @@ window.addEventListener("load", (e) => {
         opacity: 0,
         delay: 0.5,
         duration: 0.5,
-        ease: "elastic",
+        ease: "fade",
       },
-      { display: "block", opacity: 1, ease: "elastic" }
+      { display: "block", opacity: 1, ease: "fade" }
     );
     gsap.fromTo(
       "#progress-bar-container",
@@ -122,6 +154,7 @@ window.addEventListener("load", (e) => {
       },
       { display: "block", opacity: 1, ease: "elastic" }
     );
+    backToHome.style.display = "block";
   });
 
   back.addEventListener("click", (e) => {
@@ -182,6 +215,7 @@ window.addEventListener("load", (e) => {
     formTwoHeading.textContent = serviceTypeValue;
     back.style.display = "block";
     progressBar.style.width = "33.33%";
+    window.scrollTo(0, 0);
   });
 
   // form two events
