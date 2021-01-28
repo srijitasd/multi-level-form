@@ -123,6 +123,17 @@ window.addEventListener("load", (e) => {
       },
       { display: "none", opacity: 0, duration: 0.5, ease: "fade" }
     );
+    gsap.fromTo(
+      "#progress-bar-container",
+      {
+        display: "block",
+        opacity: 1,
+        delay: 0.5,
+        duration: 0.5,
+        ease: "fade",
+      },
+      { display: "none", opacity: 0, ease: "fade" }
+    );
   });
 
   StartAProject.addEventListener("click", () => {
@@ -150,9 +161,9 @@ window.addEventListener("load", (e) => {
         opacity: 0,
         delay: 0.5,
         duration: 0.5,
-        ease: "elastic",
+        ease: "fade",
       },
-      { display: "block", opacity: 1, ease: "elastic" }
+      { display: "block", opacity: 1, ease: "fade" }
     );
     backToHome.style.display = "block";
   });
