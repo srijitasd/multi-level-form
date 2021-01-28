@@ -133,7 +133,7 @@ window.addEventListener("load", (e) => {
     progressBar.style.width = "33.33%";
   });
 
-  document.addEventListener("click", (e) => console.log(e.target));
+  //  document.addEventListener("click", (e) => console.log(e.target));
 
   infos.forEach((info) => {
     info.addEventListener("click", (e) => {
@@ -170,7 +170,7 @@ window.addEventListener("load", (e) => {
     disabledSubmit(productTypeValue, subProject);
   });
 
-  subProject.addEventListener("hover", (e) => {
+  subProject.addEventListener("click", (e) => {
     fadeForm("#formOne", "#formTwo");
     formTwoHeading.textContent = serviceTypeValue;
     back.style.display = "block";
