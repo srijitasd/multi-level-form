@@ -114,17 +114,57 @@ header {
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  align-self: center;
   color: rgba(41, 41, 41, 0.7);
   display: block;
 }
 
 .input-container {
   display: inline-flex;
+  position: relative;
+  margin-bottom: 15px;
+  justify-items: center;
 }
 
-.material-form .input-container > input[type="text"],
-.material-form .input-container > select,
+.info-div {
+  padding: 1rem;
+  border: 1px solid rgba(131, 131, 131, 0.5);
+  background-color: rgb(255, 255, 251);
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 5px rgba(131, 131, 131, 0.3);
+  position: absolute;
+  top: 2rem;
+  left: 10%;
+  max-width: 18rem;
+  z-index: 1;
+  display: none;
+  opacity: 0;
+}
+
+.info-p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-align: justify;
+}
+
+.bold {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+ul {
+  margin: 0rem 1rem 1rem 1rem;
+}
+
+lottie-player {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.material-form > input[type="text"],
+.material-form > select,
 .mat-input {
   background-color: rgb(255, 255, 251);
   border: 1px solid rgba(131, 131, 131, 0.5);
@@ -137,13 +177,6 @@ header {
   margin-bottom: 2.5rem;
   color: rgba(41, 41, 41, 0.7);
   align-self: center;
-}
-
-lottie-player {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-top: 0.4rem;
-  cursor: pointer;
 }
 
 .material-form > textarea {
@@ -240,6 +273,7 @@ option {
   border-radius: 0.5rem;
   box-sizing: border-box;
   padding: 3rem 3rem;
+  display: none;
 }
 
 @media only screen and (max-width: 1030px) {
@@ -308,6 +342,14 @@ option {
     margin-top: 3rem;
   }
 
+  .info-div {
+    left: 0%;
+  }
+
+  .info-p {
+    font-size: 0.8rem;
+  }
+
   img {
     height: 2.5rem;
     width: 2.5rem;
@@ -319,4 +361,10 @@ option {
   .mat-form-container {
     width: 90vw;
   }
+}
+
+.hide-info {
+  display: block !important;
+  opacity: 1;
+  transition: 1s;
 }

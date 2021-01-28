@@ -24,6 +24,7 @@ window.addEventListener("load", (e) => {
   var backTwo = document.getElementById("backtwo");
   var progressBar = document.getElementById("progress-bar");
   var infos = document.querySelectorAll(".info");
+  var infoDivs = document.querySelectorAll(".info-div");
 
   // empty variables
   var serviceTypeValue;
@@ -133,11 +134,17 @@ window.addEventListener("load", (e) => {
     progressBar.style.width = "33.33%";
   });
 
-  //  document.addEventListener("click", (e) => console.log(e.target));
+  document.addEventListener("click", (e) => {
+    if (e.target.className != "info") {
+      infoDivs.forEach((infoDiv) => {
+        infoDiv.classList.remove("hide-info");
+      });
+    }
+  });
 
   infos.forEach((info) => {
     info.addEventListener("click", (e) => {
-      console.log(e.target.id);
+      info.previousElementSibling.classList.toggle("hide-info");
     });
   });
 

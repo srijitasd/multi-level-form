@@ -56,53 +56,33 @@
           <img src="start.webp" alt="" />
           <p class="light form-heading">submit a project</p>
         </div>
-        <label for="helpType" class="mat-label">I need help with :</label>
         <div class="input-container">
-          <select name="helpType" id="helpType" value="select">
-            <option class="option" value="select">select</option>
-            <option class="option" value="Social media marketing">
-              Social media marketing
-            </option>
-            <option class="option" value="Website design">
-              Website design
-            </option>
-            <option class="option" value="Google Ads">Google Ads</option>
-            <option class="option" value="Landing page development">
-              Landing page development
-            </option>
-            <option class="option" value="Search engine optimisation">
-              search engine optimisation
-            </option>
-            <option class="option" value="Funnel development">
-              Ecommerce funnel development
-            </option>
-          </select>
-          <lottie-player
-            src="info.json"
-            background="transparent"
-            speed="1"
-            id="serviceType"
-            class="info"
-            hover
-            loop
-          ></lottie-player>
+          <label for="helpType" class="mat-label">I need help with :</label>
         </div>
+        <select name="helpType" id="helpType" value="select">
+          <option class="option" value="select">select</option>
+          <option class="option" value="Social media marketing">
+            Social media marketing
+          </option>
+          <option class="option" value="Website design">Website design</option>
+          <option class="option" value="Google Ads">Google Ads</option>
+          <option class="option" value="Landing page development">
+            Landing page development
+          </option>
+          <option class="option" value="Search engine optimisation">
+            search engine optimisation
+          </option>
+          <option class="option" value="Funnel development">
+            Ecommerce funnel development
+          </option>
+        </select>
 
-        <label for="my" class="mat-label">My :</label>
         <div class="input-container">
-          <select name="my" id="my" disabled>
-            <option class="option" value="select">select</option>
-          </select>
-          <lottie-player
-            src="info.json"
-            background="transparent"
-            speed="1"
-            id="productType"
-            class="info"
-            hover
-            loop
-          ></lottie-player>
+          <label for="my" class="mat-label">My :</label>
         </div>
+        <select name="my" id="my" disabled>
+          <option class="option" value="select">select</option>
+        </select>
         <button class="mat-submit" disabled id="btnOne" name="cat_submit">
           Continue
         </button>
@@ -115,7 +95,40 @@
           <p class="light form-heading" id="formTwoHeading"></p>
         </div>
         <h4>Add your Project details</h4>
-        <label for="projectName" class="mat-label">Name your project</label>
+        <div class="input-container">
+          <label for="helpType" class="mat-label">Name your project</label>
+          <div class="info-div">
+            <p class="info-p">
+              A clear and well written title helps us match you to the right
+              experts.
+            </p>
+            <p class="info-p bold">Good Project Title Examples:</p>
+            <ul>
+              <li class="info-p">
+                Create Genesis Child Theme from Existing Site
+              </li>
+              <li class="info-p">
+                Convert to WordPress multi-site install (unified user database)
+              </li>
+              <li class="info-p">WooCommerce/WordPress theme adjustments</li>
+              <li class="info-p">WordPress Speed Optimization</li>
+            </ul>
+            <p class="info-p bold">Bad Project Title Examples:</p>
+            <ul>
+              <li class="info-p">I need help with my WordPress theme</li>
+              <li class="info-p">Problems with my plugin</li>
+            </ul>
+          </div>
+          <lottie-player
+            src="info.json"
+            background="transparent"
+            speed="1"
+            id="serviceType"
+            class="info"
+            hover
+            loop
+          ></lottie-player>
+        </div>
         <input
           type="text"
           id="projectName"
@@ -123,18 +136,48 @@
           name="projectName"
           placeholder="e.g.   I need my wordpress website fixed"
         />
-        <label for="projectDescrip" class="mat-label"
-          >Describe your project</label
-        >
+        <div class="input-container">
+          <label for="helpType" class="mat-label">Describe your project</label>
+          <div class="info-div">
+            <p class="info-p">
+              The more details you provide, the better equipped our experts will
+              be to provide an accurate estimate.
+            </p>
+          </div>
+          <lottie-player
+            src="info.json"
+            background="transparent"
+            speed="1"
+            id="serviceType"
+            class="info"
+            hover
+            loop
+          ></lottie-player>
+        </div>
         <textarea
           id="projectDescrip"
           disabled
           class="mat-input"
           name="projectDescrip"
         ></textarea>
-        <label for="webUrl" class="mat-label"
-          >Provide your project URL (OPTIONAL)</label
-        >
+        <div class="input-container">
+          <label for="helpType" class="mat-label">Website url (optional)</label>
+          <div class="info-div">
+            <p class="info-p">
+              Please provide the website address (e.g. http://example.com) of
+              your project if you have it.
+            </p>
+          </div>
+          <lottie-player
+            src="info.json"
+            background="transparent"
+            speed="1"
+            id="serviceType"
+            class="info"
+            hover
+            loop
+          ></lottie-player>
+        </div>
         <input
           type="text"
           id="webUrl"
